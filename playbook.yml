@@ -3,6 +3,6 @@
 
   - name: Send hello world message
     slack:
-      token: {{ token }}
+      token: '{{ token }}'
       channel: ansible-tower-test
       msg: {"text": "Hello World!"}
