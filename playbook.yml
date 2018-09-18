@@ -1,8 +1,10 @@
 ---
   - hosts: localhost
+    connection: local
+    tasks:
 
-  - name: Send hello world message
-    slack:
-      token: '{{ token }}'
-      channel: ansible-tower-test
-      msg: {"text": "Hello World!"}
+    - name: Send hello world message
+      slack:
+        token: '{{ token }}'
+        channel: ansible-tower-test
+        msg: {"text": "Hello World!"}
