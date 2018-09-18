@@ -1,5 +1,8 @@
 ---
   - hosts: localhost
 
-    roles:
-      - ../slack-notification-test
+  - name: Send hello world message
+    slack:
+      token: {{ token }}
+      channel: ansible-tower-test
+      msg: {"text": "Hello World!"}
