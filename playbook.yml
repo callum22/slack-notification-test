@@ -7,4 +7,4 @@
       slack:
         token: '{{ token }}'
         channel: ansible-tower-test
-        msg: '{"text": "Hello World!"}'
+        msg: "{{ msg }}"
