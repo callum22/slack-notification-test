@@ -3,9 +3,17 @@
     connection: local
     tasks:
 
+    - name: Check URL response status
+      uri:
+        url: "{{ url }}"
+      register: result
+      ignore_errors: yes
+    - set_facts:
+        status: result.status
+    
     - name: Send hello world message
       slack:
-        token: '{{ token }}'
+        token: "{{ token }}"
         channel: ansible-tower-test
         attachments:
-          - text: "{{ message }}"
+          - text: "URL: {{ url }} responded with a status code of {{ status }}"
