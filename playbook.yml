@@ -15,7 +15,6 @@
       slack:
         token: "{{ token }}"
         channel: ansible-tower-test
-        color: 'good'
         attachments:
           - text: "URL: {{ url }} is {{ status }}"
-          
+            color: "good"
