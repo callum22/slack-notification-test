@@ -17,4 +17,4 @@
         channel: ansible-tower-test
         attachments:
           - text: "URL: {{ url }} is {{ status }}"
-            color: "good"
+            color: "'good' if ({{ status }} == 200) else 'danger'"
