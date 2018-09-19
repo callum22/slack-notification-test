@@ -8,7 +8,7 @@
         url: "{{ url }}"
       register: result
       ignore_errors: yes
-    - set_facts:
+    - set_fact:
         status: "{{ result.status }}"
     
     - name: Send hello world message
