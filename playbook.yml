@@ -9,11 +9,12 @@
       register: result
       ignore_errors: yes
     - set_fact:
-        status: "{{ result.status }}"
+        status: "{{ 'Operational' if (result.status==200) else 'Major Outage' }}"
     
     - name: Send hello world message
       slack:
         token: "{{ token }}"
         channel: ansible-tower-test
         attachments:
-          - text: "URL: {{ url }} responded with a status code of {{ status }}"
+          - color: "'good' if ({{ status }}=='Operational') else 'danger'"
+          - text: "URL: {{ url }} is {{ status }}"
