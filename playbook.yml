@@ -16,5 +16,5 @@
         token: "{{ token }}"
         channel: ansible-tower-test
         attachments:
-          - color: "good"
+          - color: good
           - text: "URL: {{ url }} is {{ status }}"
