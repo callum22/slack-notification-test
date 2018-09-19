@@ -9,7 +9,7 @@
       register: result
       ignore_errors: yes
     - set_facts:
-        status: result.status
+        status: "{{ result.status }}"
     
     - name: Send hello world message
       slack:
