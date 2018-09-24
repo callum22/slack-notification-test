@@ -8,7 +8,7 @@
         url: "{{ url }}"
       register: result
       ignore_errors: yes
-      validate_certs: False
+      validate_certs: no
     - set_fact:
         status: "{{ 'Operational' if (result.status == 200) else 'Major Outage' }}"
         color: "{{ 'good' if (result.status == 200) else 'danger' }}"
