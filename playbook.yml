@@ -11,11 +11,12 @@
     - set_fact:
         status: "{{ 'Operational' if (result.status == 200) else 'Major Outage' }}"
         color: "{{ 'good' if (result.status == 200) else 'danger' }}"
+        ignore_errors: yes
     
-    - name: Send hello world message
+    - name: Send slack notification
       slack:
         token: "{{ token }}"
         channel: ansible-tower-test
         attachments:
-          - text: "URL: {{ url }} is {{ status }}"
+          - text: "{{ 'URL: {{ url }} is {{ status }}' if (status == 'Operational' | 'Major Outage') else 'Error: Problem with URL provided' }}"
             color: "{{ color }}"
