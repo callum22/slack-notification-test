@@ -18,5 +18,5 @@
         token: "{{ token }}"
         channel: ansible-tower-test
         attachments:
-          - text: "{{ 'URL: {{ url }} is {{ status }}' if (status == 'Operational' | 'Major Outage') else 'Error: Problem with URL provided' }}"
+          - text: "URL: {{ url }} is {{ status }}"
             color: "{{ color }}"
